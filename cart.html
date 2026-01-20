@@ -1,0 +1,29 @@
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2 class="cart-title">Shopping Cart (<span id="cartCount">0</span>)</h2>
+    <button class="close-btn" onclick="toggleCart()">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <svg class="cart-empty-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+      </svg>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+
+  <div class="cart-footer" id="cartFooter" style="display: none;">
+    <div class="cart-total">
+      <span class="cart-total-label">Total:</span>
+      <span class="cart-total-amount" id="cartTotal">$0.00</span>
+    </div>
+    <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+      Proceed to Checkout
+    </button>
+  </div>
+</div>

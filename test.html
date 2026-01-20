@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tẩy da chết da dầu bồ kết</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vollkorn', serif;
+            background: linear-gradient(135deg, #f5f1ed 0%, #ebe5de 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .content-wrapper {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .left-text {
+            font-size: 3.5rem;
+            color: #1f1c17;
+            line-height: 1.1;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        .center-product {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-element {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-element img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            opacity: 0;
+        }
+
+        /* Hiệu ứng từ trái */
+        .from-left img {
+            animation: convergeFromLeft 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* Hiệu ứng từ phải */
+        .from-right img {
+            animation: convergeFromRight 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.1s;
+        }
+
+        /* Hiệu ứng từ trên */
+        .from-top img {
+            animation: convergeFromTop 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s;
+        }
+
+        /* Sản phẩm chính */
+        .main-product img {
+            animation: fadeInScale 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s;
+        }
+
+        /* Text overlay */
+        .text-overlay img {
+            animation: fadeIn 1s ease forwards 0.8s;
+        }
+
+        .right-description {
+            opacity: 0;
+            animation: fadeInRight 1s ease forwards 0.6s;
+        }
+
+        .right-description h3 {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 12px 0;
+            font-size: 1.125rem;
+            color: #1f1c17;
+            text-decoration: none;
+            border-bottom: 2px solid #1f1c17;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            gap: 15px;
+            color: #8b5a3c;
+            border-color: #8b5a3c;
+        }
+
+        @keyframes convergeFromLeft {
+            0% {
+                transform: translateX(-200%) rotate(-30deg) scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes convergeFromRight {
+            0% {
+                transform: translateX(200%) rotate(30deg) scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes convergeFromTop {
+            0% {
+                transform: translateY(-200%) rotate(20deg) scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .left-text {
+                font-size: 2.5rem;
+            }
+
+            .center-product {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .left-text {
+                font-size: 2rem;
+            }
+
+            .center-product {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <!-- Left Text -->
+            <div class="left-text">
+                Tẩy da chết<br/>da dầu bồ kết
+            </div>
+
+            <!-- Center Product Area -->
+            <div class="center-product">
+                <!-- Bồ kết phải (từ bên phải bay vào) -->
+                <div class="product-element from-right">
+                    <img src="https://image.cocoonvietnam.com/uploads/Bo_Ket_Phai_c555c43cf4.png" alt="Bồ kết phải">
+                </div>
+
+                <!-- Bồ kết trái (từ bên trái bay vào) -->
+                <div class="product-element from-left">
+                    <img src="https://image.cocoonvietnam.com/uploads/Bo_Ket_Trai_fb930b79a1.png" alt="Bồ kết trái">
+                </div>
+
+                <!-- Lá bồ kết (từ trên xuống) -->
+                <div class="product-element from-top">
+                    <img src="https://image.cocoonvietnam.com/uploads/La_Bo_Ket_999620cfb3.png" alt="Lá bồ kết">
+                </div>
+
+                <!-- Sản phẩm chính (phóng to từ giữa) -->
+                <div class="product-element main-product">
+                    <img src="https://image.cocoonvietnam.com/uploads/SP_bf2a71bf26.png" alt="Sản phẩm">
+                </div>
+
+                <!-- Text overlay (fade in cuối cùng) -->
+                <div class="product-element text-overlay">
+                    <img src="https://image.cocoonvietnam.com/uploads/Text_4970fe8fb1.png" alt="Text">
+                </div>
+            </div>
+
+            <!-- Right Description -->
+            <div class="right-description">
+                <h3>
+                    Tẩy da chết da đầu bồ kết là giải pháp làm sạch sâu da đầu từ chiết xuất bồ kết Việt Nam, hạt muối biển cùng BHA và Crinipan PMC Green. Công thức kết hợp cơ chế làm sạch vật lý, hoá học và sinh học giúp làm sạch gàu, loại bỏ da chết và bã nhờn tích tụ lâu ngày trên da đầu, cho da đầu thông thoáng, giúp giảm ngứa và giảm tiết dầu nhờn.
+                </h3>
+                <a href="#" class="cta-button">
+                    <span>Mua ngay</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

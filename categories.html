@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Sneaker Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header"></header>
+
+  <!-- Hero Slider -->
+  <section class="hero-slider">
+    <div class="slider-container">
+      <button class="slider-btn prev" onclick="prevSlide()">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div class="slide active">
+        <div class="slide-content">
+          <div class="slide-image">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" alt="Sneaker">
+          </div>
+          <div class="slide-text">
+            <div class="slide-tag">GIRLS</div>
+            <h2 class="slide-title">SEEKER</h2>
+            <p class="slide-description">
+              Up your game in our latest innovations for the court, the field,
+              and everywhere in between and also another interesting feature.
+            </p>
+            <button class="btn-outline">EXPLORE</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="slider-btn next" onclick="nextSlide()">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <div class="slider-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Icons -->
+  <section class="category-icons-section">
+    <div class="container">
+      <div class="category-icons">
+        <div class="category-icon-item" onclick="filterByCategory('running')">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=150" alt="Running">
+          <span>Running</span>
+        </div>
+        <div class="category-icon-item" onclick="filterByCategory('gym')">
+          <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=150" alt="Gym">
+          <span>Gym</span>
+        </div>
+        <div class="category-icon-item" onclick="filterByCategory('training')">
+          <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=150" alt="Training">
+          <span>Training</span>
+        </div>
+        <div class="category-icon-item" onclick="filterByCategory('basketball')">
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=150" alt="Basketball">
+          <span>Basketball</span>
+        </div>
+        <div class="category-icon-item" onclick="filterByCategory('sportswear')">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=150" alt="Sportswear">
+          <span>Sportswear</span>
+        </div>
+        <div class="category-icon-item" onclick="filterByCategory('walking')">
+          <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=150" alt="Walking">
+          <span>Walking</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products with Sidebar -->
+  <section class="products-with-sidebar">
+    <div class="container">
+      <div class="products-layout">
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+          <div class="filter-group">
+            <h3 class="filter-title">CATEGORY</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="backpacks" checked>
+                <span>Backpacks</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="coats">
+                <span>Coats</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="sneakers">
+                <span>Sneakers</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="hats">
+                <span>Hats</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="jackets">
+                <span>Jackets</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="jeans">
+                <span>Jeans</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="tshirts">
+                <span>Tshirts</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="suits">
+                <span>Suits</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-title">CONDITION</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="condition" value="new" checked>
+                <span>New</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="condition" value="used">
+                <span>Used</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="condition" value="refurbished">
+                <span>Refurbished</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="condition" value="partly">
+                <span>Partly Functional</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3 class="filter-title">SHIPPMENT</h3>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="radio" name="shipping" value="free" checked>
+                <span>Free</span>
+              </label>
+              <label class="filter-option">
+                <input type="radio" name="shipping" value="premium">
+                <span>Premium</span>
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <div class="products-main">
+          <div class="products-grid-full" id="productsGrid">
+            <!-- Products will be loaded here -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="pagination-btn">Previous</button>
+            <button class="pagination-number active">01</button>
+            <button class="pagination-number">02</button>
+            <button class="pagination-number">03</button>
+            <span>...</span>
+            <button class="pagination-number">28</button>
+            <button class="pagination-btn">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section-full">
+    <div class="newsletter-overlay">
+      <h2>GET ALL OUR UPDATES</h2>
+      <form class="newsletter-form-full">
+        <input type="email" placeholder="cristinaelapa90@gmail.com">
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer"></footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cartSidebarContainer"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/categories.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+
+</html>

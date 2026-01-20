@@ -1,0 +1,34 @@
+[
+  {
+    "id": "C1001",
+    "name": "Lan Nguyen",
+    "email": "lan.nguyen@example.com",
+    "phone": "0901 234 567",
+    "address": "12 Nguyen Trai St, District 1, Ho Chi Minh City",
+    "createdAt": "2025-10-01"
+  },
+  {
+    "id": "C1002",
+    "name": "Khoa Tran",
+    "email": "khoa.tran@example.com",
+    "phone": "0912 345 678",
+    "address": "45 Le Loi St, District 1, Ho Chi Minh City",
+    "createdAt": "2025-10-05"
+  },
+  {
+    "id": "C1003",
+    "name": "Hoang Anh Le",
+    "email": "anh.le@example.com",
+    "phone": "0987 654 321",
+    "address": "89 Phan Chu Trinh St, Da Nang",
+    "createdAt": "2025-10-12"
+  },
+  {
+    "id": "C1004",
+    "name": "Thu Trang Pham",
+    "email": "trang.pham@example.com",
+    "phone": "0933 888 999",
+    "address": "22 Ly Thuong Kiet St, Ha Noi",
+    "createdAt": "2025-10-20"
+  }
+]

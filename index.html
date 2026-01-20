@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sneaker Store - Premium Footwear</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header"></header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Step Into
+        <span class="gradient-text">Greatness</span>
+      </h1>
+      <p class="hero-subtitle">
+        Discover premium sneakers crafted for performance, style, and comfort. Elevate your game today.
+      </p>
+      <button class="btn-primary" onclick="window.location.href='shop.html'">
+        Shop Now →
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse"></div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-section">
+    <div class="container">
+      <h2 class="section-title">Featured Collection</h2>
+      <div class="products-grid" id="featuredProducts"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer"></footer>
+
+  <!-- Cart Sidebar (imported from cart.html) -->
+  <div id="cartSidebarContainer"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+
+</html>

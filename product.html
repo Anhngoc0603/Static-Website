@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail - Sneaker Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header"></header>
+
+  <!-- Product Detail -->
+  <section class="product-detail-section">
+    <div class="container">
+      <button class="back-btn" onclick="window.location.href='shop.html'">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Shop
+      </button>
+
+      <div class="product-detail" id="productDetail"></div>
+
+      <!-- Related Products -->
+      <div class="related-section">
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="products-grid" id="relatedProducts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer"></footer>
+
+  <!-- Cart Sidebar -->
+  <div id="cartSidebarContainer"></div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/product.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+
+</html>

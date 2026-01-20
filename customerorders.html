@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Orders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="orders-page">
+    <div class="page-header">
+      <h2 id="title">Lịch sử đơn hàng</h2>
+      <button id="backBtn" class="back-btn">← Quay lại Customers</button>
+    </div>
+    <div class="summary">
+      <div class="card"><div>Đơn hàng</div><strong id="sumOrders">0</strong></div>
+      <div class="card"><div>Doanh thu</div><strong id="sumRevenue">$0.00</strong></div>
+      <div class="card"><div>Trạng thái</div><strong id="sumStatuses">-</strong></div>
+    </div>
+    <table class="orders-table">
+      <thead>
+        <tr><th>ID</th><th>Status</th><th>ETA</th><th>Total</th><th>Items</th></tr>
+      </thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+  </div>
+</body>
+<script src="js/customerdetail.js"></script>
+</html>

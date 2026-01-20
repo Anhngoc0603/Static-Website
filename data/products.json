@@ -1,0 +1,147 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Nike Air Max 270 React",
+      "brand": "Nike",
+      "price": 2799999,
+      "originalPrice": 3100000,
+      "discount": 10,
+      "rating": 4.5,
+      "reviews": 223,
+      "sold": 782,
+      "store": "Nike Store",
+      "location": "South Jakarta",
+      "image": "🔴"
+    },
+    {
+      "id": 2,
+      "name": "Adidas Ultraboost 22",
+      "brand": "Adidas",
+      "price": 2350000,
+      "originalPrice": 3000000,
+      "discount": 22,
+      "rating": 4.3,
+      "reviews": 156,
+      "sold": 238,
+      "store": "Adidas Official",
+      "location": "Bekasi",
+      "image": "⚫"
+    },
+    {
+      "id": 3,
+      "name": "Nike Jordan 1 Retro High",
+      "brand": "Nike",
+      "price": 3539999,
+      "originalPrice": 4700000,
+      "discount": 25,
+      "rating": 4.8,
+      "reviews": 423,
+      "sold": 150,
+      "store": "SneakerTime",
+      "location": "Bekasi",
+      "image": "🟢"
+    },
+    {
+      "id": 4,
+      "name": "Puma RS-X Tech",
+      "brand": "Puma",
+      "price": 1800000,
+      "originalPrice": 2400000,
+      "discount": 25,
+      "rating": 4.2,
+      "reviews": 167,
+      "sold": 337,
+      "store": "Puma OS",
+      "location": "Jakarta Center",
+      "image": "🔵"
+    },
+    {
+      "id": 5,
+      "name": "Converse Chuck 70 High",
+      "brand": "Converse",
+      "price": 950000,
+      "originalPrice": 1200000,
+      "discount": 21,
+      "rating": 4.6,
+      "reviews": 289,
+      "sold": 770,
+      "store": "Converse OS",
+      "location": "Jakarta Center",
+      "image": "⚪"
+    },
+    {
+      "id": 6,
+      "name": "New Balance 574 Classic",
+      "brand": "New Balance",
+      "price": 1249999,
+      "originalPrice": 1500000,
+      "discount": 17,
+      "rating": 4.4,
+      "reviews": 192,
+      "sold": 502,
+      "store": "NB Shop",
+      "location": "Bogor",
+      "image": "🟡"
+    },
+    {
+      "id": 7,
+      "name": "Vans Old Skool Platform",
+      "brand": "Vans",
+      "price": 850000,
+      "originalPrice": 1000000,
+      "discount": 15,
+      "rating": 4.3,
+      "reviews": 156,
+      "sold": 389,
+      "store": "Vans Shop",
+      "location": "Bogor",
+      "image": "⚫"
+    },
+    {
+      "id": 8,
+      "name": "Reebok Classic Leather",
+      "brand": "Reebok",
+      "price": 899000,
+      "originalPrice": 1100000,
+      "discount": 18,
+      "rating": 4.1,
+      "reviews": 134,
+      "sold": 267,
+      "store": "Reebok Store",
+      "location": "South Jakarta",
+      "image": "⚪"
+    }
+  ],
+  "filters": {
+    "cities": ["DKI Jakarta", "Bandung", "Medan", "Semarang", "Bogor", "Depok", "Pemalang"],
+    "conditions": ["New", "Second", "Refurbish"],
+    "colors": [
+      { "name": "Red", "color": "bg-red-500" },
+      { "name": "Blue", "color": "bg-blue-500" },
+      { "name": "Brown", "color": "bg-amber-700" },
+      { "name": "Yellow", "color": "bg-yellow-400" },
+      { "name": "Orange", "color": "bg-orange-500" }
+    ]
+  },
+  "searchTags": [
+    "Running shoes",
+    "Basketball",
+    "Casual sneakers",
+    "Limited edition",
+    "Sports",
+    "Classic"
+  ],
+  "priceRanges": [
+    "300.000 - 5.200.000",
+    "500.000 - 1.000.000",
+    "1.000.000 - 3.000.000",
+    "3.000.000 - 5.000.000"
+  ],
+  "sortOptions": [
+    "Reviews",
+    "Price: Low to High",
+    "Price: High to Low",
+    "Newest"
+  ]
+}

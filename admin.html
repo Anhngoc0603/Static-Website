@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNEAKER Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="admin-app">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar">
+      <div class="brand">SNEAKER</div>
+      <nav class="nav">
+        <button data-target="dashboard" class="nav-item active"><i class="fa-solid fa-chart-line"></i>
+          Dashboard</button>
+        <button data-target="finance" class="nav-item"><i class="fa-solid fa-wallet"></i> Finance</button>
+        <button data-target="orders" class="nav-item"><i class="fa-solid fa-bag-shopping"></i> Orders</button>
+        <button data-target="products" class="nav-item"><i class="fa-solid fa-box-open"></i> Products</button>
+        <button data-target="analytics" class="nav-item"><i class="fa-solid fa-chart-bar"></i> Analytics</button>
+        <button data-target="customers" class="nav-item"><i class="fa-solid fa-user-group"></i> Customers</button>
+        <button data-target="reports" class="nav-item"><i class="fa-solid fa-file-invoice"></i> Reports</button>
+
+        <div class="nav-divider"></div>
+
+        <button data-target="profile" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</button>
+        <button class="nav-item" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </nav>
+    </aside>
+
+    <main class="content">
+        <header class="topbar">
+          <button id="sidebarToggle" class="btn small sidebar-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </header>
+
+      <section id="dashboard" class="view active">
+        <h1>Dashboard</h1>
+        <div class="cards">
+          <div class="card">
+            <div class="label">Total Orders</div>
+            <div class="value" id="statOrders">0</div>
+          </div>
+          <div class="card">
+            <div class="label">Products</div>
+            <div class="value" id="statProducts">0</div>
+          </div>
+          <div class="card">
+            <div class="label">Customers</div>
+            <div class="value" id="statCustomers">0</div>
+          </div>
+          <div class="card">
+            <div class="label">Refunds</div>
+            <div class="value" id="statRefunds">0</div>
+          </div>
+        </div>
+        <div class="chart-controls">
+          <label>
+            Time range
+            <select id="dashboardRange">
+              <option value="7d">Last week</option>
+              <option value="30d" selected>Last month</option>
+              <option value="90d">Last quarter</option>
+              <option value="all">All</option>
+            </select>
+          </label>
+          <label>
+            Group by
+            <select id="dashboardGroup">
+              <option value="day" selected>Day</option>
+              <option value="month">Month</option>
+            </select>
+          </label>
+        </div>
+        <div class="charts" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+  
+  <!-- Chart 1: Revenue by day -->
+  <div class="chart-container">   <!-- THÊM div này -->
+    <div class="card" style="padding:12px;">
+      <h3 style="margin-bottom:8px;">Revenue by day (ETA)</h3>
+      <canvas id="chartRevenue" height="160"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 2: Order status -->
+  <div class="chart-container">   <!-- THÊM div này -->
+    <div class="card" style="padding:12px;">
+      <h3 style="margin-bottom:8px;">Order status</h3>
+      <canvas id="chartStatus" height="160"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 3: Inventory by category (full width) -->
+  <div class="chart-container full-width">   <!-- THÊM div này + class full-width -->
+    <div class="card" style="padding:12px; grid-column: 1 / -1;">
+      <h3 style="margin-bottom:8px;">Inventory by category</h3>
+      <canvas id="chartInventory" height="190"></canvas>
+    </div>
+  </div>
+
+</div>
+      </section>
+
+      <section id="finance" class="view">
+        <div class="view-header">
+          <h1>Finance</h1>
+        </div>
+        <div class="placeholder-content">Finance module coming soon.</div>
+      </section>
+
+      <section id="products" class="view">
+        <div class="view-header">
+          <h1>Products</h1>
+          <button class="btn primary" id="addProductBtn"><i class="fa-solid fa-plus"></i> Add Product</button>
+        </div>
+        <table class="table" id="productsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="orders" class="view">
+        <div class="view-header">
+          <h1>Orders</h1>
+        </div>
+        <table class="table" id="ordersTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Customer</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>ETA</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="analytics" class="view">
+        <div class="view-header">
+          <h1>Analytics</h1>
+        </div>
+        <div class="placeholder-content">Analytics module coming soon.</div>
+      </section>
+
+      <section id="customers" class="view">
+        <div class="view-header">
+          <h1>Customers</h1><button class="btn primary" id="addCustomerBtn"><i class="fa-solid fa-plus"></i> Add
+            Customer</button>
+        </div>
+        <table class="table" id="customersTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="reports" class="view">
+        <div class="view-header">
+          <h1>Reports</h1>
+        </div>
+        <div class="placeholder-content">Reports module coming soon.</div>
+      </section>
+
+      <section id="categories" class="view">
+        <div class="view-header">
+          <h1>Categories</h1>
+          <button class="btn" id="addCategoryBtn"><i class="fa-solid fa-plus"></i> Add</button>
+        </div>
+        <ul class="list" id="categoriesList"></ul>
+      </section>
+
+      <section id="discounts" class="view">
+        <div class="view-header">
+          <h1>Discount Codes</h1>
+          <button class="btn" id="addCodeBtn"><i class="fa-solid fa-plus"></i> New Code</button>
+        </div>
+        <table class="table" id="codesTable">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Type</th>
+              <th>Value</th>
+              <th>Active</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="blogs" class="view">
+        <div class="view-header">
+          <h1>Sale Events</h1>
+          <button class="btn" id="addBlogBtn"><i class="fa-solid fa-plus"></i> New Post</button>
+        </div>
+        <ul class="list" id="blogsList"></ul>
+      </section>
+
+      <section id="support" class="view">
+        <div class="view-header">
+          <h1>Support Center</h1>
+        </div>
+        <table class="table" id="supportTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Subject</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="refunds" class="view">
+        <div class="view-header">
+          <h1>Refund Requests</h1>
+        </div>
+        <table class="table" id="refundsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Order</th>
+              <th>Reason</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="profile" class="view">
+        <div class="view-header">
+          <h1>Settings</h1>
+        </div>
+        <form class="form" id="profileForm">
+          <div class="grid-2">
+            <label>Name<input type="text" name="name" required /></label>
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Phone<input type="tel" name="phone" required /></label>
+          </div>
+          <div class="actions">
+            <button class="btn primary" type="submit">Save</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Product Detail Modal -->
+      <div class="modal" id="productModal" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modalTitle">Product Detail</h3>
+            <button class="btn small" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+        </div>
+      </div>
+
+      <!-- Product Manage Modal -->
+      <div class="modal" id="productManageModal" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="productManageTitle">Product</h3>
+            <button class="btn small" id="productManageClose"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="productForm">
+              <input type="hidden" name="id" />
+              <div class="grid-2">
+                <label>Name<input type="text" name="name" required /></label>
+                <label>Brand<input type="text" name="brand" /></label>
+                <label>Price<input type="number" step="0.01" min="0" name="price" required /></label>
+                <label>Available<input type="checkbox" name="available" /></label>
+                <label>Specs<textarea name="specs" rows="3"></textarea></label>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Save</button>
+                <button class="btn danger" type="button" id="deleteProductBtn">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Manage Modal -->
+      <div class="modal" id="customerModal" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="customerModalTitle">Customer</h3>
+            <button class="btn small" id="customerModalClose"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="customerForm">
+              <input type="hidden" name="id" />
+              <div class="grid-2">
+                <label>Name<input type="text" name="name" required /></label>
+                <label>Email<input type="email" name="email" required /></label>
+                <label>Phone<input type="tel" name="phone" /></label>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Save</button>
+                <button class="btn danger" type="button" id="deleteCustomerBtn">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Manage Modal -->
+      <div class="modal" id="categoryModal" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="categoryModalTitle">Category</h3>
+            <button class="btn small" id="categoryModalClose"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="categoryForm">
+              <input type="hidden" name="id" />
+              <div class="grid-2">
+                <label>Title<input type="text" name="title" required /></label>
+                <label>Description<textarea name="description" rows="3"></textarea></label>
+                <label>Tags<input type="text" name="tags" placeholder="tag1, tag2" /></label>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Save</button>
+                <button class="btn danger" type="button" id="deleteCategoryBtn">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Manage Modal -->
+      <div class="modal" id="blogModal" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="blogModalTitle">Blog Post</h3>
+            <button class="btn small" id="blogModalClose"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="blogForm">
+              <input type="hidden" name="id" />
+              <div class="grid-2">
+                <label>Title<input type="text" name="title" required /></label>
+                <label>Author<input type="text" name="author" /></label>
+                <label>Images URLs<input type="text" name="images" placeholder="url1, url2" /></label>
+                <label>Tags<input type="text" name="tags" placeholder="tag1, tag2" /></label>
+                <label>Body<textarea name="body" rows="6" required></textarea></label>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Save</button>
+                <button class="btn danger" type="button" id="deleteBlogBtn">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discount/Promotion Manage Modal -->
+      <div class="modal" id="discountModal" hidden>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="discountModalTitle">Promotion</h3>
+            <button class="btn small" id="discountModalClose"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="modal-body">
+            <form class="form" id="discountForm">
+              <input type="hidden" name="id" />
+              <div class="grid-2">
+                <label>Code/Name<input type="text" name="code" required /></label>
+                <label>Type<select name="type">
+                    <option value="percent">Percent</option>
+                    <option value="amount">Amount</option>
+                  </select></label>
+                <label>Value<input type="number" step="0.01" min="0" name="value" required /></label>
+                <label>Products/Categories<input type="text" name="applies" placeholder="p:1,p:2,c:catA" /></label>
+                <label>Start Date<input type="date" name="start" /></label>
+                <label>End Date<input type="date" name="end" /></label>
+                <label>Usage Limit<input type="number" min="0" name="limit" /></label>
+                <label>Active<input type="checkbox" name="active" /></label>
+              </div>
+              <div class="actions">
+                <button class="btn primary" type="submit">Save</button>
+                <button class="btn danger" type="button" id="deleteDiscountBtn">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+
+</html>
